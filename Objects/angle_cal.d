@@ -1,0 +1,13 @@
+.\objects\angle_cal.o: angle_cal.c
+.\objects\angle_cal.o: angle_cal.h
+.\objects\angle_cal.o: C:\Keil_v5\ARM\PACK\Keil\Kinetis_KLxx_DFP\1.15.0\Device\Include\MKL25Z4.h
+.\objects\angle_cal.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\angle_cal.o: C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include\core_cm0plus.h
+.\objects\angle_cal.o: C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include\cmsis_version.h
+.\objects\angle_cal.o: C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include\cmsis_compiler.h
+.\objects\angle_cal.o: C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include\cmsis_armcc.h
+.\objects\angle_cal.o: .\RTE\Device\MKL25Z128xxx4\system_MKL25Z4.h
+.\objects\angle_cal.o: sqrt16.h
+.\objects\angle_cal.o: median.h
+.\objects\angle_cal.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\cmath
+.\objects\angle_cal.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\math.h

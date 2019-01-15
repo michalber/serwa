@@ -1,0 +1,133 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Tool Versions:</h2>
+IDE-Version: µVision V5.26.2.0
+Copyright (C) 2018 ARM Ltd and ARM Germany GmbH. All rights reserved.
+License Information: Micha³ Berdzik, AGH University of Science , LIC=----
+ 
+Tool Versions:
+Toolchain:       MDK-Lite  Version: 5.26.2.0
+Toolchain Path:  C:\Keil_v5\ARM\ARMCC\Bin
+C Compiler:      Armcc.exe V5.06 update 6 (build 750)
+Assembler:       Armasm.exe V5.06 update 6 (build 750)
+Linker/Locator:  ArmLink.exe V5.06 update 6 (build 750)
+Library Manager: ArmAr.exe V5.06 update 6 (build 750)
+Hex Converter:   FromElf.exe V5.06 update 6 (build 750)
+CPU DLL:         SARMCM3.DLL V5.26.2.0
+Dialog DLL:      DARMCM1.DLL V1.19.1.0
+Target DLL:      CMSIS_AGDI.dll V1.30.6.0
+Dialog DLL:      TARMCM1.DLL V1.14.0.0
+ 
+<h2>Project:</h2>
+G:\Cortex\serwa\serwa.uvprojx
+Project File Date:  12/27/2018
+
+<h2>Output:</h2>
+*** Using Compiler 'V5.06 update 6 (build 750)', folder: 'C:\Keil_v5\ARM\ARMCC\Bin'
+Rebuild target 'Target 1'
+compiling pwm.c...
+pwm.h(69): warning:  #1-D: last line of file ends without a newline
+  #endif /* PWM_H_ */
+pwm.c(259): warning:  #1-D: last line of file ends without a newline
+  /***************************************************************************************/
+pwm.c: 2 warnings, 0 errors
+compiling serwo.c...
+pwm.h(69): warning:  #1-D: last line of file ends without a newline
+  #endif /* PWM_H_ */
+serwo.h(34): warning:  #1-D: last line of file ends without a newline
+  #endif /* SERWO_H_ */
+serwo.c: 2 warnings, 0 errors
+compiling main.c...
+pwm.h(69): warning:  #1-D: last line of file ends without a newline
+  #endif /* PWM_H_ */
+serwo.h(34): warning:  #1-D: last line of file ends without a newline
+  #endif /* SERWO_H_ */
+main.c(143): warning:  #111-D: statement is unreachable
+  	return 0;
+main.c: 3 warnings, 0 errors
+compiling extra.c...
+compiling I2C_Transmission.c...
+compiling Accelometer.c...
+Accelometer.c(75): warning:  #550-D: variable "data"  was set but never used
+  	double data;
+Accelometer.c(98): warning:  #550-D: variable "data"  was set but never used
+  	double data;
+Accelometer.c(121): warning:  #550-D: variable "data"  was set but never used
+  	double data;
+Accelometer.c(144): warning:  #550-D: variable "data"  was set but never used
+  	double data;
+Accelometer.c(167): warning:  #550-D: variable "data"  was set but never used
+  	double data;
+Accelometer.c(190): warning:  #550-D: variable "data"  was set but never used
+  	double data;
+Accelometer.c(212): warning:  #550-D: variable "psix"  was set but never used
+  	double psix;
+Accelometer.c(226): warning:  #550-D: variable "psiy"  was set but never used
+  	double psiy;
+Accelometer.c(237): warning:  #177-D: variable "omega"  was declared but never referenced
+  	double psi1, psi2, omega;
+Accelometer.c(245): warning:  #177-D: variable "omega"  was declared but never referenced
+  	double psi1, psi2, omega;
+Accelometer.c(286): warning:  #940-D: missing return statement at end of non-void function "Gyro_R_Read" 
+  }
+Accelometer.c: 11 warnings, 0 errors
+compiling i2c.c...
+compiling mma8451.c...
+compiling median.c...
+compiling angle_cal.c...
+angle_cal.c(66): warning:  #177-D: variable "x2"  was declared but never referenced
+     signed int nv, x2, y2, z2;
+angle_cal.c(66): warning:  #177-D: variable "y2"  was declared but never referenced
+     signed int nv, x2, y2, z2;
+angle_cal.c(66): warning:  #177-D: variable "z2"  was declared but never referenced
+     signed int nv, x2, y2, z2;
+angle_cal.c: 3 warnings, 0 errors
+compiling sqrt16.c...
+assembling startup_MKL25Z4.s...
+compiling lptmr.c...
+compiling system_MKL25Z4.c...
+linking...
+Program Size: Code=7860 RO-data=500 RW-data=0 ZI-data=352  
+FromELF: creating hex file...
+".\Objects\serwa.axf" - 0 Error(s), 21 Warning(s).
+
+<h2>Software Packages used:</h2>
+
+Package Vendor: ARM
+                http://www.keil.com/pack/ARM.CMSIS.5.4.0.pack
+                ARM.CMSIS.5.4.0
+                CMSIS (Cortex Microcontroller Software Interface Standard)
+   * Component: CORE Version: 5.1.2
+   * Component: DSP Version: 1.5.2
+
+Package Vendor: Keil
+                http://www.keil.com/pack/Keil.Kinetis_KLxx_DFP.1.15.0.pack
+                Keil.Kinetis_KLxx_DFP.1.15.0
+                NXP Kinetis KLxx Series Device Support and Examples
+   * Component: Startup Version: 2.5.0
+
+<h2>Collection of Component include folders:</h2>
+  .\RTE\Device\MKL25Z128xxx4
+  .\RTE\_Target_1
+  C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include
+  C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\DSP\Include
+  C:\Keil_v5\ARM\PACK\Keil\Kinetis_KLxx_DFP\1.15.0\Device\Include
+
+<h2>Collection of Component Files used:</h2>
+
+   * Component: ARM::CMSIS:CORE:5.1.2
+
+   * Component: ARM::CMSIS:DSP:1.5.2
+      Library file:  CMSIS\Lib\ARM\arm_cortexM0l_math.lib
+      Include file:  CMSIS\DSP\Include\arm_math.h
+
+   * Component: Keil::Device:Startup:2.5.0
+      Source file:   Device\Source\system_MKL25Z4.c
+      Include file:  Device\Source\system_MKL25Z4.h
+      Source file:   Device\Source\ARM\startup_MKL25Z4.s
+Build Time Elapsed:  00:00:05
+</pre>
+</body>
+</html>

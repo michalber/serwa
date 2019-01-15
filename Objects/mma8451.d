@@ -1,0 +1,16 @@
+.\objects\mma8451.o: mma8451.c
+.\objects\mma8451.o: mma8451.h
+.\objects\mma8451.o: i2c.h
+.\objects\mma8451.o: C:\Keil_v5\ARM\PACK\Keil\Kinetis_KLxx_DFP\1.15.0\Device\Include\MKL25Z4.h
+.\objects\mma8451.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\mma8451.o: C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include\core_cm0plus.h
+.\objects\mma8451.o: C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include\cmsis_version.h
+.\objects\mma8451.o: C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include\cmsis_compiler.h
+.\objects\mma8451.o: C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include\cmsis_armcc.h
+.\objects\mma8451.o: .\RTE\Device\MKL25Z128xxx4\system_MKL25Z4.h
+.\objects\mma8451.o: angle_cal.h
+.\objects\mma8451.o: C:\Keil_v5\ARM\PACK\Keil\Kinetis_KLxx_DFP\1.15.0\Device\Include\MKL25Z4.h
+.\objects\mma8451.o: sqrt16.h
+.\objects\mma8451.o: median.h
+.\objects\mma8451.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\cmath
+.\objects\mma8451.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\math.h

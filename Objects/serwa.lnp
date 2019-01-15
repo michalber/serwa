@@ -1,0 +1,19 @@
+--cpu Cortex-M0+
+".\objects\main.o"
+".\objects\pwm.o"
+".\objects\serwo.o"
+".\objects\extra.o"
+".\objects\accelometer.o"
+".\objects\i2c_transmission.o"
+".\objects\i2c.o"
+".\objects\mma8451.o"
+".\objects\angle_cal.o"
+".\objects\median.o"
+".\objects\sqrt16.o"
+".\objects\lptmr.o"
+"C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Lib\ARM\arm_cortexM0l_math.lib"
+".\objects\startup_mkl25z4.o"
+".\objects\system_mkl25z4.o"
+--ro-base 0x00000000 --entry 0x00000000 --rw-base 0x1FFFF000 --entry Reset_Handler --first __Vectors --strict --summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list ".\Listings\serwa.map" -o .\Objects\serwa.axf

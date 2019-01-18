@@ -17,3 +17,6 @@ void I2C_SetRXmode(void);
 void I2C_SendNack(void);
 void I2C_WaitForAck(void);
 void I2C_Write(uint8_t data);
+void I2C_set_slave_mode(void);
+
+void I2C_set_master_mode(void);

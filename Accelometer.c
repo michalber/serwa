@@ -4,16 +4,6 @@
 #define M_PI        3.14159265358979323846
 
 /**
-@brief Function intialize accelometer 
-@author Jakub Brzezowski
-@version 1.0 2018-12-06
-@param none
-@retval none
-*/
-void accelometer_init(void){
-	I2C_Init();
-}
-/**
 @brief Function reads any adress from MPU9562
 @author Jakub Brzezowski
 @version 1.0 2018-12-03
@@ -27,21 +17,28 @@ uint8_t read_register(uint8_t addr){
     I2C_Start(); 
 
     // Send slave address followed by an Write bit
-    I2C_Write(I2C_SLV0_ADDR  | I2C_WRITE);
+    I2C_Write(MPU9250_ADDRESS  | I2C_WRITE); // Uwaga! Mozna tez spróbowac podmienic adres urzadzenia na I2C_SLV0_ADDR.
 	
     //  Send register address from we will be read
+	  I2C_Wait();
+		I2C_GetAck();
+	
     I2C_Write(addr);
-
+	  I2C_Wait();
+		I2C_GetAck();
+	
     // Repeat START signal in order to communicate in a 
     // reveice mode without releasing the bus
     I2C_RepeatedStart();
     // Send slave address followed by an Read bit
-    I2C_Write(I2C_SLV0_ADDR  | I2C_READ);
-	
+    I2C_Write(MPU9250_ADDRESS  | I2C_READ);
+		 I2C_Wait();
+		I2C_GetAck();
     // Now we can read from the previously selected register
 
     // Change transmit mode to Receive
     I2C_SetRXmode();
+		I2C_SendNack();
 
     // Clean data register
     result = I2C_ReadByte();
@@ -51,15 +48,49 @@ uint8_t read_register(uint8_t addr){
     // that one last byte is required
 		I2C_SendNack();
 		// Read value from slave device register
-    result = I2C_ReadByte();
+    result = I2C_ReadByte();	
     I2C_Wait();
 
 		// Generate STOP signal
     I2C_Stop();
+		result = I2C_ReadByte();
 		//Wait for STOP signal to propagate
 		//pause();
 
 		return result;
+}
+// this delay is very important, it may cause w-r operation failure.
+static void pause(void)
+{
+    int n;
+    for(n=0; n<40; n++)
+        asm("nop");
+}
+/**
+@brief Function write any adress from MPU9562
+@author Jakub Brzezowski
+@version 1.0 2018-12-03
+@param addr is addres of writing register
+@param data is data write toregister
+@retval none
+*/
+void write_register(uint8_t addr, uint8_t data){
+	I2C_Start();
+	
+	I2C_WriteByte(MPU9250_ADDRESS|I2C_WRITE);
+	I2C_Wait();
+	I2C_GetAck();
+	
+	I2C_WriteByte(addr);
+	I2C_Wait();
+	I2C_GetAck();
+	
+	I2C_WriteByte(data);
+	I2C_Wait();
+	I2C_GetAck();
+	
+	I2C_Stop();
+	pause();
 }
 /**
 @brief Function reads X axis of accelometer
@@ -258,7 +289,7 @@ double Gyro_R_Read(double* input){
 		double omegax;
 		double omegay;
 		double Omega_Gyro;
-		
+	
 		double AcceVector;
 		double GyroVector;
 	
@@ -273,17 +304,17 @@ double Gyro_R_Read(double* input){
 		AcceVector=sqrt(accel[0]*accel[0]+accel[1]*accel[1]+accel[2]*accel[2]);
 		GyroVector=sqrt(data[0]*data[0]+data[1]*data[1]+data[2]*data[2]);
 	
-		for(uint8_t i = 0; i<3; i++){accel_normal[i]=accel[i]/AcceVector;}
-		for(uint8_t i = 0; i<3; i++){gyro_normal[i]=data[i]/GyroVector;}
+		for(uint8_t i =0;i<0;i++){accel_normal[i]=accel[i]/AcceVector;}
+		for(uint8_t i =0;i<0;i++){gyro_normal[i]=data[i]/GyroVector;}
 		
 		omegax = omega_x();
 		omegay = omega_y();
 		Omega_Gyro = omegay/omegax;
 		
-		input[0] = (accel_normal[0]+gyro_normal[0]*Omega_Gyro)/(1+Omega_Gyro);
-		input[1] = (accel_normal[1]+gyro_normal[1]*Omega_Gyro)/(1+Omega_Gyro);
-		input[2] = (accel_normal[2]+gyro_normal[2]*Omega_Gyro)/(1+Omega_Gyro);		
+		input[0]= (accel_normal[0]+gyro_normal[0]*Omega_Gyro)/(1+Omega_Gyro);
+		input[1]= (accel_normal[1]+gyro_normal[1]*Omega_Gyro)/(1+Omega_Gyro);
+		input[2]= (accel_normal[2]+gyro_normal[2]*Omega_Gyro)/(1+Omega_Gyro);
+		
 }
-
 
 

@@ -14,3 +14,9 @@
 .\objects\mma8451.o: median.h
 .\objects\mma8451.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\cmath
 .\objects\mma8451.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\math.h
+.\objects\mma8451.o: Accelometer.h
+.\objects\mma8451.o: C:\Keil_v5\ARM\PACK\Keil\Kinetis_KLxx_DFP\1.15.0\Device\Include\MKL25Z4.h
+.\objects\mma8451.o: I2C_Transmission.h
+.\objects\mma8451.o: C:\Keil_v5\ARM\PACK\Keil\Kinetis_KLxx_DFP\1.15.0\Device\Include\MKL25Z4.h
+.\objects\mma8451.o: extra.h
+.\objects\mma8451.o: C:\Keil_v5\ARM\PACK\Keil\Kinetis_KLxx_DFP\1.15.0\Device\Include\MKL25Z4.h

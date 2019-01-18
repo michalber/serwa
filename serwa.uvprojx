@@ -428,56 +428,6 @@
               <FilePath>.\I2C_Transmission.c</FilePath>
             </File>
             <File>
-              <FileName>i2c.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\i2c.c</FilePath>
-            </File>
-            <File>
-              <FileName>i2c.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\i2c.h</FilePath>
-            </File>
-            <File>
-              <FileName>mma8451.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\mma8451.c</FilePath>
-            </File>
-            <File>
-              <FileName>mma8451.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\mma8451.h</FilePath>
-            </File>
-            <File>
-              <FileName>angle_cal.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\angle_cal.c</FilePath>
-            </File>
-            <File>
-              <FileName>angle_cal.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\angle_cal.h</FilePath>
-            </File>
-            <File>
-              <FileName>median.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\median.c</FilePath>
-            </File>
-            <File>
-              <FileName>median.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\median.h</FilePath>
-            </File>
-            <File>
-              <FileName>sqrt16.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\sqrt16.c</FilePath>
-            </File>
-            <File>
-              <FileName>sqrt16.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\sqrt16.h</FilePath>
-            </File>
-            <File>
               <FileName>lptmr.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\lptmr.c</FilePath>
@@ -486,6 +436,36 @@
               <FileName>lptmr.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\lptmr.h</FilePath>
+            </File>
+            <File>
+              <FileName>uart.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\uart.c</FilePath>
+            </File>
+            <File>
+              <FileName>angle_cal.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\angle_cal.c</FilePath>
+            </File>
+            <File>
+              <FileName>i2c.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\i2c.c</FilePath>
+            </File>
+            <File>
+              <FileName>mma8451.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\mma8451.c</FilePath>
+            </File>
+            <File>
+              <FileName>sqrt16.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\sqrt16.c</FilePath>
+            </File>
+            <File>
+              <FileName>median.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\median.c</FilePath>
             </File>
           </Files>
         </Group>

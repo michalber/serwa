@@ -16,6 +16,14 @@
 .\objects\main.o: C:\Keil_v5\ARM\PACK\Keil\Kinetis_KLxx_DFP\1.15.0\Device\Include\MKL25Z4.h
 .\objects\main.o: I2C_Transmission.h
 .\objects\main.o: C:\Keil_v5\ARM\PACK\Keil\Kinetis_KLxx_DFP\1.15.0\Device\Include\MKL25Z4.h
+.\objects\main.o: lptmr.h
+.\objects\main.o: C:\Keil_v5\ARM\PACK\Keil\Kinetis_KLxx_DFP\1.15.0\Device\Include\MKL25Z4.h
+.\objects\main.o: Accelometer.h
+.\objects\main.o: C:\Keil_v5\ARM\PACK\Keil\Kinetis_KLxx_DFP\1.15.0\Device\Include\MKL25Z4.h
+.\objects\main.o: I2C_Transmission.h
+.\objects\main.o: C:\Keil_v5\ARM\PACK\Keil\Kinetis_KLxx_DFP\1.15.0\Device\Include\MKL25Z4.h
+.\objects\main.o: I2C_Transmission.h
+.\objects\main.o: C:\Keil_v5\ARM\PACK\Keil\Kinetis_KLxx_DFP\1.15.0\Device\Include\MKL25Z4.h
 .\objects\main.o: mma8451.h
 .\objects\main.o: i2c.h
 .\objects\main.o: C:\Keil_v5\ARM\PACK\Keil\Kinetis_KLxx_DFP\1.15.0\Device\Include\MKL25Z4.h
@@ -25,11 +33,3 @@
 .\objects\main.o: median.h
 .\objects\main.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\cmath
 .\objects\main.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\math.h
-.\objects\main.o: lptmr.h
-.\objects\main.o: C:\Keil_v5\ARM\PACK\Keil\Kinetis_KLxx_DFP\1.15.0\Device\Include\MKL25Z4.h
-.\objects\main.o: Accelometer.h
-.\objects\main.o: C:\Keil_v5\ARM\PACK\Keil\Kinetis_KLxx_DFP\1.15.0\Device\Include\MKL25Z4.h
-.\objects\main.o: I2C_Transmission.h
-.\objects\main.o: C:\Keil_v5\ARM\PACK\Keil\Kinetis_KLxx_DFP\1.15.0\Device\Include\MKL25Z4.h
-.\objects\main.o: I2C_Transmission.h
-.\objects\main.o: C:\Keil_v5\ARM\PACK\Keil\Kinetis_KLxx_DFP\1.15.0\Device\Include\MKL25Z4.h

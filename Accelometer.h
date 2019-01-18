@@ -1,9 +1,6 @@
 #include "MKL25Z4.h"
 #include "I2C_Transmission.h"
-#include "extra.h"
-/**
-@brief declarations of register of MPU 92/65 
-*/
+#include "extra.h"	
 /**
 @brief declarations of register of MPU 92/65 
 */
@@ -139,11 +136,11 @@
 
 // Using the MSENSR-9250 breakout board, ADO is set to 0 
 // Seven-bit device address is 110100 for ADO = 0 and 110101 for ADO = 1
-#define ADO 1
+#define ADO 0
 #if ADO
-#define MPU9250_ADDRESS 0x69  // Device address when ADO = 1
+#define MPU9250_ADDRESS (0x69<<1)  // Device address when ADO = 1
 #else
-#define MPU9250_ADDRESS 0x68  // Device address when ADO = 0
+#define MPU9250_ADDRESS (0x68<<1)  // Device address when ADO = 0
 #define AK8963_ADDRESS 0x0C   //  Address of magnetometer
 #endif  
 
@@ -152,6 +149,9 @@
 
 void accelometer_init(void);
 uint8_t read_register(uint8_t);
+void write_register(uint8_t, uint8_t);
+static void pause(void);
+
 double X_acc_read(void);
 double Y_acc_read(void);
 double Z_acc_read(void);
@@ -166,5 +166,7 @@ double psi_y(void);
 double omega_x(void);
 double omega_y(void);
 
-double Gyro_R_Read(double* input);
+double Gyro_R_read(double* [3]);
+
+
 

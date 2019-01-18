@@ -71,16 +71,16 @@ _Bool i2c_get_ack(I2C_MemMapPtr p)
 void hal_i2c0_init(I2C_MemMapPtr p)
 {
    SIM_SCGC4 |= SIM_SCGC4_I2C0_MASK;
-   SIM_SCGC5 |= SIM_SCGC5_PORTE_MASK;
-    
+  // SIM_SCGC5 |= SIM_SCGC5_PORTE_MASK;
+    SIM_SCGC5 |= SIM_SCGC5_PORTC_MASK;
+	
       // configure GPIO for I2C function
-    PORTE_PCR24 = PORT_PCR_MUX(5);
-    PORTE_PCR25 = PORT_PCR_MUX(5);
+    PORTC_PCR8 = PORT_PCR_MUX(2);
+    PORTC_PCR9 = PORT_PCR_MUX(2);
 
     p->F  = 0x14; // baudrate
     p->C1 = 0x80; // enable IIC
 }
-
 // -------------------------------------------------
 void hal_i2c1_init(I2C_MemMapPtr p)
 {

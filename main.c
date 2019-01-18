@@ -55,10 +55,10 @@
 #include "serwo.h"
 #include "Accelometer.h"
 #include "extra.h"
-#include "mma8451.h"
 #include "lptmr.h"
 #include "Accelometer.h"
 #include "I2C_Transmission.h"
+#include "mma8451.h"
 
 /*
 0 - servo test
@@ -80,19 +80,22 @@ int main()
 	resetPosition(&serwoZ);
 	time_delay_ms(10);	// 10ms delay
 	
-	accelometer_init();
+	uart_Init((UART_MemMapPtr)UART0,3,115200);
+	//I2C_Init();
+	accel_init();
+	
 	double results[3];
 	/*
-	accel_init();
 	time_delay_ms(10);
 	accel_read();
 	*/
 	
-	Gyro_R_Read(results);
+	//Gyro_R_Read(results);
 	time_delay_ms(5);
 	//uint32_t pos0 = resultx;
 	uint32_t pos0 = results[0];
-	
+	uart_String((UART_MemMapPtr)UART0, "Hello from KL25Z \r\n");
+	uint8_t data;
 	//setPosition(&serwoX,-90);
 	//I2C_Init();
 	
@@ -124,11 +127,20 @@ int main()
 		delay_mc(500);
 #elif MODE == 1
 		//accel_read();
-		Gyro_R_Read(results);
+		//Gyro_R_Read(results);
+		uart_String((UART_MemMapPtr)UART0, "Reading reg \n\r");
+		uart_Put((UART_MemMapPtr)UART0, WHO_AM_I_MPU9250);
+		uart_String((UART_MemMapPtr)UART0, "\n\r"); 
+		uart_String((UART_MemMapPtr)UART0, "My name is: \n\r");
+		data = hal_dev_mma8451_read_reg(WHO_AM_I_MPU9250);
 		asm("nop");
+		uart_Put((UART_MemMapPtr)UART0, data);
+		uart_String((UART_MemMapPtr)UART0, "\n\r"); 
+		asm("nop");
+		//asm("nop");
 		//rotateFor(&serwoX,pos0-xy_angle);
 		//rotateSerwoControl(&serwoX,-(resultx-pos0));	
-		setPosition(&serwoX,-(results[0]-pos0));	
+		//setPosition(&serwoX,-(results[0]-pos0));	
 				
 		//goToZero(&serwoX, -resultx);
 #elif MODE == 2

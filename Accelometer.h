@@ -1,10 +1,11 @@
 #include "MKL25Z4.h"
 #include "I2C_Transmission.h"
 #include "extra.h"	
+#include "lptmr.h"
+#include "mma8451.h"
 /**
 @brief declarations of register of MPU 92/65 
 */
-
 
 
 #define SELF_TEST_X_GYRO 0x00                  
@@ -147,6 +148,9 @@
 #define AHRS true         // set to false for basic data read
 #define SerialDebug true   // set to true to get Serial output for debugging
 
+
+extern double mpu_results[3];
+
 void accelometer_init(void);
 uint8_t read_register(uint8_t);
 void write_register(uint8_t, uint8_t);
@@ -166,7 +170,7 @@ double psi_y(void);
 double omega_x(void);
 double omega_y(void);
 
-double Gyro_R_read(double* [3]);
+void Gyro_R_read(double* [3]);
 
 
 

@@ -1,5 +1,5 @@
 Dependencies for Project 'serwa', Target 'Target 1': (DO NOT MODIFY !)
-F (.\main.c)(0x5C424727)(--c99 --gnu -c --cpu Cortex-M0+ -D__EVAL -g -O0 --apcs=interwork --split_sections-I.\RTE\Device\MKL25Z128xxx4-I.\RTE\_Target_1-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\DSP\Include-IC:\Keil_v5\ARM\PACK\Keil\Kinetis_KLxx_DFP\1.15.0\Device\Include-D__UVISION_VERSION="526" -D_RTE_ -DMKL25Z128xxx4-o .\objects\main.o --omf_browse .\objects\main.crf --depend .\objects\main.d)
+F (.\main.c)(0x5C461905)(--c99 --gnu -c --cpu Cortex-M0+ -D__EVAL -g -O0 --apcs=interwork --split_sections-I.\RTE\Device\MKL25Z128xxx4-I.\RTE\_Target_1-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\DSP\Include-IC:\Keil_v5\ARM\PACK\Keil\Kinetis_KLxx_DFP\1.15.0\Device\Include-D__UVISION_VERSION="526" -D_RTE_ -DMKL25Z128xxx4-o .\objects\main.o --omf_browse .\objects\main.crf --depend .\objects\main.d)
 I (C:\Keil_v5\ARM\PACK\Keil\Kinetis_KLxx_DFP\1.15.0\Device\Include\MKL25Z4.h)(0x585BD06A)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599F2F9E)
 I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include\core_cm0plus.h)(0x5B61C4E4)
@@ -11,10 +11,10 @@ I (pwm.h)(0x5C1A80E5)
 I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x599F2F9E)
 I (serwo.h)(0x5C28CE17)
 I (extra.h)(0x5C0FEC86)
-I (Accelometer.h)(0x5C4212F8)
+I (Accelometer.h)(0x5C46124C)
 I (I2C_Transmission.h)(0x5C420C3A)
 I (lptmr.h)(0x5C24F53E)
-I (mma8451.h)(0x5C1A8DE7)
+I (mma8451.h)(0x5C460B32)
 I (i2c.h)(0x5C1A8D84)
 I (angle_cal.h)(0x5C1E2FA6)
 I (sqrt16.h)(0x528D410C)
@@ -55,8 +55,8 @@ I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include\cmsis_compiler.h)(0x5B
 I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include\cmsis_armcc.h)(0x5B61C4E4)
 I (.\RTE\Device\MKL25Z128xxx4\system_MKL25Z4.h)(0x564470FA)
 F (.\extra.h)(0x5C0FEC86)()
-F (.\Accelometer.c)(0x5C423370)(--c99 --gnu -c --cpu Cortex-M0+ -D__EVAL -g -O0 --apcs=interwork --split_sections-I.\RTE\Device\MKL25Z128xxx4-I.\RTE\_Target_1-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\DSP\Include-IC:\Keil_v5\ARM\PACK\Keil\Kinetis_KLxx_DFP\1.15.0\Device\Include-D__UVISION_VERSION="526" -D_RTE_ -DMKL25Z128xxx4-o .\objects\accelometer.o --omf_browse .\objects\accelometer.crf --depend .\objects\accelometer.d)
-I (Accelometer.h)(0x5C4212F8)
+F (.\Accelometer.c)(0x5C461503)(--c99 --gnu -c --cpu Cortex-M0+ -D__EVAL -g -O0 --apcs=interwork --split_sections-I.\RTE\Device\MKL25Z128xxx4-I.\RTE\_Target_1-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\DSP\Include-IC:\Keil_v5\ARM\PACK\Keil\Kinetis_KLxx_DFP\1.15.0\Device\Include-D__UVISION_VERSION="526" -D_RTE_ -DMKL25Z128xxx4-o .\objects\accelometer.o --omf_browse .\objects\accelometer.crf --depend .\objects\accelometer.d)
+I (Accelometer.h)(0x5C46124C)
 I (C:\Keil_v5\ARM\PACK\Keil\Kinetis_KLxx_DFP\1.15.0\Device\Include\MKL25Z4.h)(0x585BD06A)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599F2F9E)
 I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include\core_cm0plus.h)(0x5B61C4E4)
@@ -66,6 +66,12 @@ I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include\cmsis_armcc.h)(0x5B61C
 I (.\RTE\Device\MKL25Z128xxx4\system_MKL25Z4.h)(0x564470FA)
 I (I2C_Transmission.h)(0x5C420C3A)
 I (extra.h)(0x5C0FEC86)
+I (lptmr.h)(0x5C24F53E)
+I (mma8451.h)(0x5C460B32)
+I (i2c.h)(0x5C1A8D84)
+I (angle_cal.h)(0x5C1E2FA6)
+I (sqrt16.h)(0x528D410C)
+I (median.h)(0x528D410C)
 I (C:\Keil_v5\ARM\ARMCC\include\cmath)(0x599F2F9C)
 I (C:\Keil_v5\ARM\ARMCC\include\math.h)(0x599F2F9E)
 F (.\I2C_Transmission.c)(0x5C422A33)(--c99 --gnu -c --cpu Cortex-M0+ -D__EVAL -g -O0 --apcs=interwork --split_sections-I.\RTE\Device\MKL25Z128xxx4-I.\RTE\_Target_1-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\DSP\Include-IC:\Keil_v5\ARM\PACK\Keil\Kinetis_KLxx_DFP\1.15.0\Device\Include-D__UVISION_VERSION="526" -D_RTE_ -DMKL25Z128xxx4-o .\objects\i2c_transmission.o --omf_browse .\objects\i2c_transmission.crf --depend .\objects\i2c_transmission.d)
@@ -120,7 +126,7 @@ I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include\cmsis_compiler.h)(0x5B
 I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include\cmsis_armcc.h)(0x5B61C4E4)
 I (.\RTE\Device\MKL25Z128xxx4\system_MKL25Z4.h)(0x564470FA)
 F (.\mma8451.c)(0x5C42342A)(--c99 --gnu -c --cpu Cortex-M0+ -D__EVAL -g -O0 --apcs=interwork --split_sections-I.\RTE\Device\MKL25Z128xxx4-I.\RTE\_Target_1-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\DSP\Include-IC:\Keil_v5\ARM\PACK\Keil\Kinetis_KLxx_DFP\1.15.0\Device\Include-D__UVISION_VERSION="526" -D_RTE_ -DMKL25Z128xxx4-o .\objects\mma8451.o --omf_browse .\objects\mma8451.crf --depend .\objects\mma8451.d)
-I (mma8451.h)(0x5C1A8DE7)
+I (mma8451.h)(0x5C460B32)
 I (i2c.h)(0x5C1A8D84)
 I (C:\Keil_v5\ARM\PACK\Keil\Kinetis_KLxx_DFP\1.15.0\Device\Include\MKL25Z4.h)(0x585BD06A)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599F2F9E)
@@ -134,9 +140,10 @@ I (sqrt16.h)(0x528D410C)
 I (median.h)(0x528D410C)
 I (C:\Keil_v5\ARM\ARMCC\include\cmath)(0x599F2F9C)
 I (C:\Keil_v5\ARM\ARMCC\include\math.h)(0x599F2F9E)
-I (Accelometer.h)(0x5C4212F8)
+I (Accelometer.h)(0x5C46124C)
 I (I2C_Transmission.h)(0x5C420C3A)
 I (extra.h)(0x5C0FEC86)
+I (lptmr.h)(0x5C24F53E)
 F (.\sqrt16.c)(0x528D410C)(--c99 --gnu -c --cpu Cortex-M0+ -D__EVAL -g -O0 --apcs=interwork --split_sections-I.\RTE\Device\MKL25Z128xxx4-I.\RTE\_Target_1-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\DSP\Include-IC:\Keil_v5\ARM\PACK\Keil\Kinetis_KLxx_DFP\1.15.0\Device\Include-D__UVISION_VERSION="526" -D_RTE_ -DMKL25Z128xxx4-o .\objects\sqrt16.o --omf_browse .\objects\sqrt16.crf --depend .\objects\sqrt16.d)
 F (.\median.c)(0x5C1E2FBB)(--c99 --gnu -c --cpu Cortex-M0+ -D__EVAL -g -O0 --apcs=interwork --split_sections-I.\RTE\Device\MKL25Z128xxx4-I.\RTE\_Target_1-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\DSP\Include-IC:\Keil_v5\ARM\PACK\Keil\Kinetis_KLxx_DFP\1.15.0\Device\Include-D__UVISION_VERSION="526" -D_RTE_ -DMKL25Z128xxx4-o .\objects\median.o --omf_browse .\objects\median.crf --depend .\objects\median.d)
 I (median.h)(0x528D410C)

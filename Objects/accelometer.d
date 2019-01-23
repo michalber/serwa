@@ -11,5 +11,14 @@
 .\objects\accelometer.o: C:\Keil_v5\ARM\PACK\Keil\Kinetis_KLxx_DFP\1.15.0\Device\Include\MKL25Z4.h
 .\objects\accelometer.o: extra.h
 .\objects\accelometer.o: C:\Keil_v5\ARM\PACK\Keil\Kinetis_KLxx_DFP\1.15.0\Device\Include\MKL25Z4.h
+.\objects\accelometer.o: lptmr.h
+.\objects\accelometer.o: C:\Keil_v5\ARM\PACK\Keil\Kinetis_KLxx_DFP\1.15.0\Device\Include\MKL25Z4.h
+.\objects\accelometer.o: mma8451.h
+.\objects\accelometer.o: i2c.h
+.\objects\accelometer.o: C:\Keil_v5\ARM\PACK\Keil\Kinetis_KLxx_DFP\1.15.0\Device\Include\MKL25Z4.h
+.\objects\accelometer.o: angle_cal.h
+.\objects\accelometer.o: C:\Keil_v5\ARM\PACK\Keil\Kinetis_KLxx_DFP\1.15.0\Device\Include\MKL25Z4.h
+.\objects\accelometer.o: sqrt16.h
+.\objects\accelometer.o: median.h
 .\objects\accelometer.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\cmath
 .\objects\accelometer.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\math.h

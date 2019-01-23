@@ -27,32 +27,28 @@ Project File Date:  01/18/2019
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 6 (build 750)', folder: 'C:\Keil_v5\ARM\ARMCC\Bin'
 Rebuild target 'Target 1'
-compiling main.c...
-pwm.h(69): warning:  #1-D: last line of file ends without a newline
-  #endif /* PWM_H_ */
-serwo.h(34): warning:  #1-D: last line of file ends without a newline
-  #endif /* SERWO_H_ */
-main.c(83): warning:  #223-D: function "uart_Init" declared implicitly
-  	uart_Init((UART_MemMapPtr)UART0,3,115200);
-main.c(97): warning:  #223-D: function "uart_String" declared implicitly
-  	uart_String((UART_MemMapPtr)UART0, "Hello from KL25Z \r\n");
-main.c(132): warning:  #223-D: function "uart_Put" declared implicitly
-  		uart_Put((UART_MemMapPtr)UART0, WHO_AM_I_MPU9250);
-main.c(155): warning:  #111-D: statement is unreachable
-  	return 0;
-main.c: 6 warnings, 0 errors
-compiling pwm.c...
-pwm.h(69): warning:  #1-D: last line of file ends without a newline
-  #endif /* PWM_H_ */
-pwm.c(259): warning:  #1-D: last line of file ends without a newline
-  /***************************************************************************************/
-pwm.c: 2 warnings, 0 errors
 compiling serwo.c...
 pwm.h(69): warning:  #1-D: last line of file ends without a newline
   #endif /* PWM_H_ */
 serwo.h(34): warning:  #1-D: last line of file ends without a newline
   #endif /* SERWO_H_ */
 serwo.c: 2 warnings, 0 errors
+compiling pwm.c...
+pwm.h(69): warning:  #1-D: last line of file ends without a newline
+  #endif /* PWM_H_ */
+pwm.c(259): warning:  #1-D: last line of file ends without a newline
+  /***************************************************************************************/
+pwm.c: 2 warnings, 0 errors
+compiling main.c...
+pwm.h(69): warning:  #1-D: last line of file ends without a newline
+  #endif /* PWM_H_ */
+serwo.h(34): warning:  #1-D: last line of file ends without a newline
+  #endif /* SERWO_H_ */
+main.c(168): warning:  #223-D: function "Gyro_R_Read" declared implicitly
+  	Gyro_R_Read();	
+main.c(172): warning:  #111-D: statement is unreachable
+  	return 0;
+main.c: 4 warnings, 0 errors
 compiling extra.c...
 compiling I2C_Transmission.c...
 compiling Accelometer.c...
@@ -76,13 +72,11 @@ Accelometer.c(268): warning:  #177-D: variable "omega"  was declared but never r
   	double psi1, psi2, omega;
 Accelometer.c(276): warning:  #177-D: variable "omega"  was declared but never referenced
   	double psi1, psi2, omega;
-Accelometer.c(307): warning:  #186-D: pointless comparison of unsigned integer with zero
-  		for(uint8_t i =0;i<0;i++){accel_normal[i]=accel[i]/AcceVector;}
-Accelometer.c(308): warning:  #186-D: pointless comparison of unsigned integer with zero
-  		for(uint8_t i =0;i<0;i++){gyro_normal[i]=data[i]/GyroVector;}
-Accelometer.c(318): warning:  #940-D: missing return statement at end of non-void function "Gyro_R_Read" 
-  }
-Accelometer.c: 13 warnings, 0 errors
+Accelometer.c(291): warning:  #177-D: variable "omegax"  was declared but never referenced
+  		double omegax;
+Accelometer.c(292): warning:  #177-D: variable "omegay"  was declared but never referenced
+  		double omegay;
+Accelometer.c: 12 warnings, 0 errors
 compiling lptmr.c...
 compiling uart.c...
 uart.h(15): warning:  #1-D: last line of file ends without a newline
@@ -107,16 +101,16 @@ angle_cal.c: 3 warnings, 0 errors
 compiling sqrt16.c...
 compiling i2c.c...
 compiling median.c...
-assembling startup_MKL25Z4.s...
 compiling mma8451.c...
 mma8451.c(9): warning:  #177-D: variable "tmp"  was declared but never referenced
       unsigned char tmp;
 mma8451.c: 1 warning, 0 errors
+assembling startup_MKL25Z4.s...
 compiling system_MKL25Z4.c...
 linking...
-Program Size: Code=3064 RO-data=224 RW-data=4 ZI-data=356  
+Program Size: Code=7524 RO-data=500 RW-data=0 ZI-data=376  
 FromELF: creating hex file...
-".\Objects\serwa.axf" - 0 Error(s), 32 Warning(s).
+".\Objects\serwa.axf" - 0 Error(s), 29 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -145,13 +139,13 @@ Package Vendor: Keil
    * Component: ARM::CMSIS:CORE:5.1.2
 
    * Component: ARM::CMSIS:DSP:1.5.2
-      Include file:  CMSIS\DSP\Include\arm_math.h
       Library file:  CMSIS\Lib\ARM\arm_cortexM0l_math.lib
+      Include file:  CMSIS\DSP\Include\arm_math.h
 
    * Component: Keil::Device:Startup:2.5.0
       Source file:   Device\Source\system_MKL25Z4.c
-      Include file:  Device\Source\system_MKL25Z4.h
       Source file:   Device\Source\ARM\startup_MKL25Z4.s
+      Include file:  Device\Source\system_MKL25Z4.h
 Build Time Elapsed:  00:00:07
 </pre>
 </body>

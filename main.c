@@ -65,7 +65,7 @@
 1 - debug
 2 - gimbal test
 */
-#define MODE 1
+#define MODE 4
 
 int main()
 {
@@ -80,11 +80,13 @@ int main()
 	resetPosition(&serwoZ);
 	time_delay_ms(10);	// 10ms delay
 	
+#if MODE == 2 || MODE == 3
 	uart_Init((UART_MemMapPtr)UART0,3,115200);
+#endif
 	//I2C_Init();
 	accel_init();
 	
-	double results[3];
+
 	/*
 	time_delay_ms(10);
 	accel_read();
@@ -93,9 +95,10 @@ int main()
 	//Gyro_R_Read(results);
 	time_delay_ms(5);
 	//uint32_t pos0 = resultx;
-	uint32_t pos0 = results[0];
-	uart_String((UART_MemMapPtr)UART0, "Hello from KL25Z \r\n");
-	uint8_t data;
+	#if MODE == 2 || MODE == 3
+		uart_String((UART_MemMapPtr)UART0, "Hello from KL25Z \r\n");
+	#endif
+
 	//setPosition(&serwoX,-90);
 	//I2C_Init();
 	
@@ -126,8 +129,7 @@ int main()
 		rotateFor(&serwoZ,-90);
 		delay_mc(500);
 #elif MODE == 1
-		//accel_read();
-		//Gyro_R_Read(results);
+// test I2C - send WHO AM I
 		uart_String((UART_MemMapPtr)UART0, "Reading reg \n\r");
 		uart_Put((UART_MemMapPtr)UART0, WHO_AM_I_MPU9250);
 		uart_String((UART_MemMapPtr)UART0, "\n\r"); 
@@ -137,12 +139,6 @@ int main()
 		uart_Put((UART_MemMapPtr)UART0, data);
 		uart_String((UART_MemMapPtr)UART0, "\n\r"); 
 		asm("nop");
-		//asm("nop");
-		//rotateFor(&serwoX,pos0-xy_angle);
-		//rotateSerwoControl(&serwoX,-(resultx-pos0));	
-		//setPosition(&serwoX,-(results[0]-pos0));	
-				
-		//goToZero(&serwoX, -resultx);
 #elif MODE == 2
 		accel_read();
 		asm("nop");
@@ -150,6 +146,27 @@ int main()
 			rotateFor(&serwoX,1);	
 			time_delay_ms(8);			
 		}
+		
+#elif MODE == 3
+// test read registers of MPU6500
+	Gyro_R_Read();	
+	
+	uart_Put((UART_MemMapPtr)UART0, mpu_results[0]);
+	uart_String((UART_MemMapPtr)UART0, "\n\r");
+	uart_Put((UART_MemMapPtr)UART0, mpu_results[1]);
+	uart_String((UART_MemMapPtr)UART0, "\n\r");
+	uart_Put((UART_MemMapPtr)UART0, mpu_results[2]);
+	uart_String((UART_MemMapPtr)UART0, "\n\r");
+	uart_String((UART_MemMapPtr)UART0, "\n\r");
+//	uart_Put((UART_MemMapPtr)UART0, results[1]);
+//	uart_String((UART_MemMapPtr)UART0, "\n\r");
+//	uart_Put((UART_MemMapPtr)UART0, results[2]);
+//	uart_String((UART_MemMapPtr)UART0, "\n\r");
+	time_delay_ms(200);
+	
+#elif MODE == 4
+	Gyro_R_Read();	
+	rotateFor(&serwoX,psi_x()/2);
 #endif
 	}
 	return 0;

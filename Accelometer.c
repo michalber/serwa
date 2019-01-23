@@ -10,7 +10,7 @@
 @param addr is addres of reading register
 @retval result is data reads from register
 */
-uint8_t read_register(uint8_t addr){
+uint8_t read_reg(uint8_t addr){
 	  	uint8_t result = 0;
 
     // Generate START signal
@@ -105,8 +105,8 @@ double X_acc_read(void){
 	uint16_t data1, data2;
 	double data;
 	
-	data1 = read_register(ACCEL_XOUT_H);
-	data2 = read_register(ACCEL_XOUT_L);
+	data1 = hal_dev_mma8451_read_reg(ACCEL_XOUT_H);
+	data2 = hal_dev_mma8451_read_reg(ACCEL_XOUT_L);
 	
 	//Moving bits for high nible
 	data1= data1<<8;
@@ -128,8 +128,8 @@ double Y_acc_read(void){
 	uint16_t data1, data2;
 	double data;
 	
-	data1 = read_register(ACCEL_YOUT_H);
-	data2 = read_register(ACCEL_YOUT_L);
+	data1 = hal_dev_mma8451_read_reg(ACCEL_YOUT_H);
+	data2 = hal_dev_mma8451_read_reg(ACCEL_YOUT_L);
 	
 	//Moving bits for high nible
 	data1= data1<<8;
@@ -151,8 +151,8 @@ double Z_acc_read(void){
 	uint16_t data1, data2;
 	double data;
 	
-	data1 = read_register(ACCEL_ZOUT_H);
-	data2 = read_register(ACCEL_ZOUT_L);
+	data1 = hal_dev_mma8451_read_reg(ACCEL_ZOUT_H);
+	data2 = hal_dev_mma8451_read_reg(ACCEL_ZOUT_L);
 	
 	//Moving bits for high nible
 	data1= data1<<8;
@@ -174,8 +174,8 @@ double X_gyro_read(void){
 	uint16_t data1, data2;
 	double data;
 	
-	data1 = read_register(GYRO_XOUT_H);
-	data2 = read_register(GYRO_XOUT_L);
+	data1 = hal_dev_mma8451_read_reg(GYRO_XOUT_H);
+	data2 = hal_dev_mma8451_read_reg(GYRO_XOUT_L);
 	
 	//Moving bits for high nible
 	data1= data1<<8;
@@ -197,8 +197,8 @@ double Y_gyro_read(void){
 	uint16_t data1, data2;
 	double data;
 	
-	data1 = read_register(GYRO_YOUT_H);
-	data2 = read_register(GYRO_YOUT_L);
+	data1 = hal_dev_mma8451_read_reg(GYRO_YOUT_H);
+	data2 = hal_dev_mma8451_read_reg(GYRO_YOUT_L);
 	
 	//Moving bits for high nible
 	data1= data1<<8;
@@ -220,8 +220,8 @@ double Z_gyro_read(void){
 	uint16_t data1, data2;
 	double data;
 	
-	data1 = read_register(GYRO_ZOUT_H);
-	data2 = read_register(GYRO_ZOUT_L);
+	data1 = hal_dev_mma8451_read_reg(GYRO_ZOUT_H);
+	data2 = hal_dev_mma8451_read_reg(GYRO_ZOUT_L);
 	
 	//Moving bits for high nible
 	data1= data1<<8;
@@ -267,7 +267,7 @@ double psi_y(void){
 double omega_x(void){
 	double psi1, psi2, omega;
 	psi1 = psi_x();
-	delay_mc(21000); //~1ms delay
+	time_delay_ms(1); //~1ms delay
 	psi2 = psi_x();
 	return (psi2-psi1)/0.001;
 }
@@ -275,23 +275,24 @@ double omega_x(void){
 double omega_y(void){
 	double psi1, psi2, omega;
 	psi1 = psi_y();
-	delay_mc(21000); //~1ms delay
+	time_delay_ms(1); //~1ms delay
 	psi2 = psi_y();
 	return (psi2-psi1)/0.001;
 }
 
-double Gyro_R_Read(double* input){
+double mpu_results[3];
+
+void Gyro_R_Read(){
 	
 		double data[3];
 		double accel[3];
-		double accel_normal[3];
-		double gyro_normal[3];
+		double accelnormal[3];
+		double gyronormal[3];
 		double omegax;
 		double omegay;
-		double Omega_Gyro;
-	
-		double AcceVector;
-		double GyroVector;
+		double OmegaGyro;
+		double Acce_Vector;
+		double Gyro_Vector;
 	
 		data[0]=X_gyro_read();
 		data[1]=Y_gyro_read();
@@ -301,20 +302,20 @@ double Gyro_R_Read(double* input){
 		accel[1]=Y_acc_read();
 		accel[2]=Z_acc_read();
 	
-		AcceVector=sqrt(accel[0]*accel[0]+accel[1]*accel[1]+accel[2]*accel[2]);
-		GyroVector=sqrt(data[0]*data[0]+data[1]*data[1]+data[2]*data[2]);
+		Acce_Vector=sqrt(accel[0]*accel[0]+accel[1]*accel[1]+accel[2]*accel[2]);
+		Gyro_Vector=sqrt(data[0]*data[0]+data[1]*data[1]+data[2]*data[2]);
 	
-		for(uint8_t i =0;i<0;i++){accel_normal[i]=accel[i]/AcceVector;}
-		for(uint8_t i =0;i<0;i++){gyro_normal[i]=data[i]/GyroVector;}
+		for(uint8_t i =0;i<3;i++){accelnormal[i]=accel[i]/Acce_Vector;}
+		for(uint8_t i =0;i<3;i++){gyronormal[i]=data[i]/Gyro_Vector;}
 		
-		omegax = omega_x();
-		omegay = omega_y();
-		Omega_Gyro = omegay/omegax;
 		
-		input[0]= (accel_normal[0]+gyro_normal[0]*Omega_Gyro)/(1+Omega_Gyro);
-		input[1]= (accel_normal[1]+gyro_normal[1]*Omega_Gyro)/(1+Omega_Gyro);
-		input[2]= (accel_normal[2]+gyro_normal[2]*Omega_Gyro)/(1+Omega_Gyro);
+		//omegax = omega_x();
+		//omegay = omega_y();
+		//OmegaGyro = omegay/omegax;
 		
+		mpu_results[0]= (accelnormal[0]+gyronormal[0]*OmegaGyro)/(1+OmegaGyro);
+		mpu_results[1]= (accelnormal[1]+gyronormal[1]*OmegaGyro)/(1+OmegaGyro);
+		mpu_results[2]= (accelnormal[2]+gyronormal[2]*OmegaGyro)/(1+OmegaGyro);
 }
 
 

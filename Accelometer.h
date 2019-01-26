@@ -149,28 +149,28 @@
 #define SerialDebug true   // set to true to get Serial output for debugging
 
 
-extern double mpu_results[3];
+extern int16_t mpu_resultx, mpu_resulty, mpu_resultz;
 
 void accelometer_init(void);
 uint8_t read_register(uint8_t);
 void write_register(uint8_t, uint8_t);
 static void pause(void);
 
-double X_acc_read(void);
-double Y_acc_read(void);
-double Z_acc_read(void);
+float X_acc_read(void);
+float Y_acc_read(void);
+float Z_acc_read(void);
 
-double X_gyro_read(void);
-double Y_gyro_read(void);
-double Z_gyro_read(void);
+float X_gyro_read(void);
+float Y_gyro_read(void);
+float Z_gyro_read(void);
 
-double psi_x(void);
-double psi_y(void);
+float psi_x(void);
+float psi_y(void);
 
-double omega_x(void);
-double omega_y(void);
+float omega_x(void);
+float omega_y(void);
 
-void Gyro_R_read(double* [3]);
+void Gyro_R_read(void);
 
-
-
+extern void mpu_angle_calc(void);
+void mpu_accel_read(void);

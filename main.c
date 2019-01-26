@@ -72,32 +72,35 @@ int main()
 	Serwo serwoX;	
 	Serwo serwoY;	
 	Serwo serwoZ;	
+	
 	initSerwo(&serwoX,0,TPM1_BASE_PTR, TPM1,0,GPIOB,0);
 	initSerwo(&serwoY,0,TPM1_BASE_PTR, TPM1,1,GPIOB,1);
 	initSerwo(&serwoZ,1,TPM0_BASE_PTR, TPM0,3,GPIOE,30);
+	
 	resetPosition(&serwoX);
 	resetPosition(&serwoY);
 	resetPosition(&serwoZ);
 	time_delay_ms(10);	// 10ms delay
 	
-#if MODE == 2 || MODE == 3
+
 	uart_Init((UART_MemMapPtr)UART0,3,115200);
-#endif
+
 	//I2C_Init();
 	accel_init();
+	uint16_t data;
+	float bufferx,buffery;
 	
-
-	/*
+	
 	time_delay_ms(10);
-	accel_read();
-	*/
 	
 	//Gyro_R_Read(results);
+	accel_read();
 	time_delay_ms(5);
-	//uint32_t pos0 = resultx;
-	#if MODE == 2 || MODE == 3
-		uart_String((UART_MemMapPtr)UART0, "Hello from KL25Z \r\n");
-	#endif
+	uint32_t pos0x = resultx;
+	uint32_t pos0y = resulty;
+	
+	uart_String((UART_MemMapPtr)UART0, "Hello from KL25Z \r\n");
+
 
 	//setPosition(&serwoX,-90);
 	//I2C_Init();
@@ -149,9 +152,9 @@ int main()
 		
 #elif MODE == 3
 // test read registers of MPU6500
-	Gyro_R_Read();	
+	//Gyro_R_Read();	
 	
-	uart_Put((UART_MemMapPtr)UART0, mpu_results[0]);
+	uart_Put((UART_MemMapPtr)UART0, psi_x());
 	uart_String((UART_MemMapPtr)UART0, "\n\r");
 	uart_Put((UART_MemMapPtr)UART0, mpu_results[1]);
 	uart_String((UART_MemMapPtr)UART0, "\n\r");
@@ -163,10 +166,18 @@ int main()
 //	uart_Put((UART_MemMapPtr)UART0, results[2]);
 //	uart_String((UART_MemMapPtr)UART0, "\n\r");
 	time_delay_ms(200);
-	
+		
 #elif MODE == 4
-	Gyro_R_Read();	
-	rotateFor(&serwoX,psi_x()/2);
+	accel_read();
+	bufferx = resultx-pos0x;
+	buffery = resulty-pos0y;
+	
+	setPosition(&serwoX,-bufferx);
+	setPosition(&serwoY,-buffery);
+	
+	time_delay_ms(1);
+	uart_Put((UART_MemMapPtr)UART0, resultx);
+  uart_String((UART_MemMapPtr)UART0, "\n\r");	
 #endif
 	}
 	return 0;

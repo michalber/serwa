@@ -81,42 +81,37 @@ void angle_calculation(void)
    Z_acc = median(nv, &arr_medianas[2]);
 	 
 	 
-	 // moja wersja z atan
-	 
-	 xy_angle = atan(Y_acc/X_acc);
 
-//   x2        = X_acc*X_acc;
-//   y2        = Y_acc*Y_acc;
+   x2        = X_acc*X_acc;
+   y2        = Y_acc*Y_acc;
 
-//   xy_mag   = sqrt_16(x2 + y2);
-//  
-//   if (Y_acc<0) cat = -Y_acc; else cat = Y_acc;
-//   
-//   offset = (unsigned int)(cat<<7)/(unsigned int)xy_mag;
-//   if (offset>127) offset = 127;    
-//   xy_angle = asin(offset);
-//   
-//   if (Y_acc>0)  xy_angle = -xy_angle;
-//   
-// 
-//   /////////   
-//   
-//   z2        = Z_acc*Z_acc;   
-//   xz_mag    = sqrt_16(x2 + z2);
-//   if (X_acc<0) cat = -X_acc; else cat = X_acc;
-//   offset = (unsigned int)(cat<<7)/(unsigned int)xz_mag;
-//   if (offset>127) offset = 127;    
-//   xz_angle = asin(offset);
-//   
-//   if (X_acc>0)  xz_angle = -xz_angle;
-//   
+   xy_mag   = sqrt_16(x2 + y2);
+  
+   if (Y_acc<0) cat = -Y_acc; else cat = Y_acc;
+   
+   offset = (unsigned int)(cat<<7)/(unsigned int)xy_mag;
+   if (offset>127) offset = 127;    
+   xy_angle = asin(offset);
+   
+   if (Y_acc>0)  xy_angle = -xy_angle;
+   
+   
+   z2        = Z_acc*Z_acc;   
+   xz_mag    = sqrt_16(x2 + z2);
+   if (X_acc<0) cat = -X_acc; else cat = X_acc;
+   offset = (unsigned int)(cat<<7)/(unsigned int)xz_mag;
+   if (offset>127) offset = 127;    
+   xz_angle = asin(offset);
+   
+   if (X_acc>0)  xz_angle = -xz_angle;
+   
 
-//   yz_mag    = sqrt_16(y2 + z2);
-//   if (Y_acc<0) cat = -Y_acc; else cat = Y_acc;
-//   offset = (unsigned int)(cat<<7)/(unsigned int)yz_mag;
-//   if (offset>127) offset = 127;    
-//   yz_angle = asin(offset);
-//   if (Y_acc>0)  yz_angle = -yz_angle;
+   yz_mag    = sqrt_16(y2 + z2);
+   if (Y_acc<0) cat = -Y_acc; else cat = Y_acc;
+   offset = (unsigned int)(cat<<7)/(unsigned int)yz_mag;
+   if (offset>127) offset = 127;    
+   yz_angle = asin(offset);
+   if (Y_acc>0)  yz_angle = -yz_angle;
     
  }
 

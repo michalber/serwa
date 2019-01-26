@@ -31,7 +31,9 @@ void i2c_give_ack(I2C_MemMapPtr p)
 }
 void i2c_repeated_start(I2C_MemMapPtr p)
 {
-    p->C1     |= I2C_C1_RSTA_MASK;
+		//p->F = 0;
+    p->C1 |= I2C_C1_RSTA_MASK;
+		//p->F = 0x14;
 }
 void i2c_write_byte(I2C_MemMapPtr p, uint8_t data)
 {
@@ -71,14 +73,17 @@ _Bool i2c_get_ack(I2C_MemMapPtr p)
 void hal_i2c0_init(I2C_MemMapPtr p)
 {
    SIM_SCGC4 |= SIM_SCGC4_I2C0_MASK;
-  // SIM_SCGC5 |= SIM_SCGC5_PORTE_MASK;
-    SIM_SCGC5 |= SIM_SCGC5_PORTC_MASK;
+   SIM_SCGC5 |= SIM_SCGC5_PORTE_MASK;
+   //SIM_SCGC5 |= SIM_SCGC5_PORTC_MASK;
 	
       // configure GPIO for I2C function
-    PORTC_PCR8 = PORT_PCR_MUX(2);
-    PORTC_PCR9 = PORT_PCR_MUX(2);
+    //PORTC_PCR8 = PORT_PCR_MUX(2);
+    //PORTC_PCR9 = PORT_PCR_MUX(2);
 
-    p->F  = 0x14; // baudrate
+		PORTE_PCR24 = PORT_PCR_MUX(5);
+    PORTE_PCR25 = PORT_PCR_MUX(5);
+    
+		p->F  = 0x14; // baudrate
     p->C1 = 0x80; // enable IIC
 }
 // -------------------------------------------------
